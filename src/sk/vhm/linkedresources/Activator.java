@@ -1,6 +1,7 @@
 package sk.vhm.linkedresources;
 
 import org.eclipse.core.runtime.Status;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -48,6 +49,10 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public static Activator getDefault() {
 		return plugin;
+	}
+	
+	public static IEditorPart getActiveEditor() {
+		return Activator.getDefault().getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 	}
 
 	public void log(String msg) {

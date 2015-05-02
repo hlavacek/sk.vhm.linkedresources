@@ -32,11 +32,6 @@ import sk.vhm.linkedresources.Activator;
  * @see org.eclipse.core.commands.AbstractHandler
  */
 public class OpenLinkedResourceHandler extends AbstractHandler {
-	/**
-	 * The constructor.
-	 */
-	public OpenLinkedResourceHandler() {
-	}
 	
 	/**
 	 * the command has been executed, so extract extract the needed information
@@ -45,7 +40,7 @@ public class OpenLinkedResourceHandler extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		
-		IEditorPart editorPart = getActiveEditor();
+		IEditorPart editorPart = Activator.getActiveEditor();
 
 		IFile activeFile = (IFile) editorPart.getEditorInput().getAdapter(IFile.class);
 		IProject currentProject = activeFile.getProject();
@@ -85,10 +80,7 @@ public class OpenLinkedResourceHandler extends AbstractHandler {
 		} catch (URISyntaxException e) {
 			Activator.getDefault().log("Invalid file URI " + selectedLink, e);
 		}
-		MessageDialog.openInformation(
-				window.getShell(),
-				"LinkedResources",
-				"Hello, Eclipse world");
+		
 		return null;
 	}
 	
@@ -115,7 +107,4 @@ public class OpenLinkedResourceHandler extends AbstractHandler {
 		return null;
 	}
 
-	private IEditorPart getActiveEditor() {
-		return Activator.getDefault().getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-	}
 }
