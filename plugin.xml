@@ -27,47 +27,15 @@
    </extension-->
    
    <extension
-         point="org.eclipse.ui.menus">
-      <menuContribution
-            locationURI="popup:#TextEditorContext?after=additions">
-         <menu
-               label="Linked Resources"
-               mnemonic="L">
-            <command
-                  commandId="sk.vhm.linkedresources.commands.openResourceCommand"
-                  label="Open"
-                  mnemonic="O">
-            </command>
-         </menu>
-      </menuContribution>
-   </extension>
-   <extension
-         point="org.eclipse.ui.handlers">
-      <handler
-            class="sk.vhm.linkedresources.handlers.OpenLinkedResourceHandler"
-            commandId="sk.vhm.linkedresources.commands.openResourceCommand">
-      </handler>
-   </extension>
-   <extension
-         point="org.eclipse.ui.bindings">
-      <key
-            commandId="sk.vhm.linkedresources.commands.openResourceCommand"
-            contextId="org.eclipse.ui.textEditorScope"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="ALT+SHIFT+L O">
-      </key>
-   </extension>
-   <extension
-         point="org.eclipse.ui.commands">
-      <category
-            id="sk.vhm.linkedresources.commands.category"
-            name="Linked Resources">
-      </category>
-      <command
-            categoryId="sk.vhm.linkedresources.commands.category"
-            id="sk.vhm.linkedresources.commands.openResourceCommand"
-            name="Open Linked Resource">
-      </command>
+         point="org.eclipse.ui.workbench.texteditor.hyperlinkDetectors">
+      <hyperlinkDetector
+            activate="true"
+            class="sk.vhm.linkedresources.hyperlink.LinkedResourceLinkDetector"
+            id="sk.vhm.linkedresources.hyperlinkDetector1"
+            modifierKeys="Ctrl + Alt"
+            name="Linked Resource Hyperlink"
+            targetId="org.eclipse.ui.DefaultTextEditor">
+      </hyperlinkDetector>
    </extension>
 
 </plugin>

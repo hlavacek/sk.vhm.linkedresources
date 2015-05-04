@@ -11,6 +11,8 @@ public class Activator extends AbstractUIPlugin {
 
 	// The shared instance
 	private static Activator plugin;
+	
+	public static final String LINK_DELIMITERS = " :\n\t";
 
 	/**
 	 * The constructor
@@ -62,4 +64,5 @@ public class Activator extends AbstractUIPlugin {
 	public void log(String msg, Exception e) {
 		getLog().log(new Status(Status.INFO, PLUGIN_ID, Status.OK, msg, e));
 	}
+	
 }
