@@ -9,13 +9,13 @@ import org.eclipse.ui.ide.IDE;
 
 import sk.vhm.linkedresources.Activator;
 
-public class LinkedResourceHyperlink implements IHyperlink {
+public class OpenEditorHyperlink implements IHyperlink {
 
 	private IRegion urlRegion;
 	private String linkText;
 	private IFile linkedFile;
 
-	public LinkedResourceHyperlink(IRegion urlRegion, String linkText, IFile linkedFile) {
+	public OpenEditorHyperlink(IRegion urlRegion, String linkText, IFile linkedFile) {
 		this.urlRegion = urlRegion;
 		this.linkText = linkText;
 		this.linkedFile = linkedFile;
@@ -33,7 +33,7 @@ public class LinkedResourceHyperlink implements IHyperlink {
 
 	@Override
 	public String getHyperlinkText() {
-		return linkText;
+		return "Edit";
 	}
 
 	@Override

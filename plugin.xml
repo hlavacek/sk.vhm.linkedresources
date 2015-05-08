@@ -30,10 +30,18 @@
          point="org.eclipse.ui.workbench.texteditor.hyperlinkDetectors">
       <hyperlinkDetector
             activate="true"
-            class="sk.vhm.linkedresources.hyperlink.LinkedResourceLinkDetector"
-            id="sk.vhm.linkedresources.hyperlinkDetector1"
-            modifierKeys="Ctrl + Alt"
-            name="Linked Resource Hyperlink"
+            class="sk.vhm.linkedresources.hyperlink.EditSelectedResourceLinkDetector"
+            id="sk.vhm.linkedresources.detectors.EditSelectedHyperlink"
+            modifierKeys="Ctrl"
+            name="Edit Selected Hyperlink"
+            targetId="org.eclipse.ui.DefaultTextEditor">
+      </hyperlinkDetector>
+      <hyperlinkDetector
+            activate="true"
+            class="sk.vhm.linkedresources.hyperlink.EditPointedResourceLinkDetector"
+            id="sk.vhm.linkedresources.detectors.EditPointedHyperlink"
+            modifierKeys="Ctrl"
+            name="Edit Pointed Hyperlink"
             targetId="org.eclipse.ui.DefaultTextEditor">
       </hyperlinkDetector>
    </extension>
