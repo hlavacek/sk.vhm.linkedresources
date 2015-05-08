@@ -13,10 +13,6 @@ import org.eclipse.jface.text.hyperlink.IHyperlink;
 
 public abstract class AbstractEditLinkedFileLinkDetector extends AbstractLinkedResourceDetector {
 
-	public AbstractEditLinkedFileLinkDetector() {
-		super();
-	}
-
 	protected IHyperlink[] getHyperlink(IRegion targetRegion, String linkText, IResource linkedFile) {
 		return new IHyperlink[] { new OpenEditorHyperlink(targetRegion, linkText, (IFile) linkedFile) };
 	}
